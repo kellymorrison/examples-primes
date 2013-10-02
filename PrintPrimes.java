@@ -45,17 +45,19 @@ public class PrintPrimes {
         do {
           j = j + 2;
           if (j == primeSquared) {
-            ord = ord + 1;
+            ord++;
             primeSquared = listOfPrimes[ord] * listOfPrimes[ord];
             mult[ord - 1] = j;
           }
           n = 2;
           isJPrime = true;
           while (n < ord && isJPrime) {
-            while (mult[n] < j)
+            while (mult[n] < j) {
               mult[n] = mult[n] + listOfPrimes[n] + listOfPrimes[n];
-            if (mult[n] == j)
+            }
+            if (mult[n] == j) {
               isJPrime = false;
+            }
             n = n + 1;
           }
         } while (!isJPrime);
