@@ -3,15 +3,15 @@ public class PrintPrimes {
   int rowsPerPage; 
   int columnsPerPage;
   int WW;
-  int ORDMAX;
+  int ordMax;
   int listOfPrimes[];
 
-  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columnsPerPage, int WW, int ORDMAX) {
+  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columnsPerPage, int WW, int ordMax) {
     this.numberOfPrimes   = numberOfPrimes;
     this.rowsPerPage  = rowsPerPage;
     this.columnsPerPage  = columnsPerPage;
     this.WW  = WW;
-    this.ORDMAX = ORDMAX;
+    this.ordMax = ordMax;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
 
@@ -35,26 +35,26 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean isJPrime;
       int n;
-      int MULT[] = new int[ORDMAX + 1];
+      int mult[] = new int[ordMax + 1];
 
       int j = 1;
-      int ORD = 2;
+      int ord = 2;
       int primeSquared = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
           j = j + 2;
           if (j == primeSquared) {
-            ORD = ORD + 1;
-            primeSquared = listOfPrimes[ORD] * listOfPrimes[ORD];
-            MULT[ORD - 1] = j;
+            ord = ord + 1;
+            primeSquared = listOfPrimes[ord] * listOfPrimes[ord];
+            mult[ord - 1] = j;
           }
           n = 2;
           isJPrime = true;
-          while (n < ORD && isJPrime) {
-            while (MULT[n] < j)
-              MULT[n] = MULT[n] + listOfPrimes[n] + listOfPrimes[n];
-            if (MULT[n] == j)
+          while (n < ord && isJPrime) {
+            while (mult[n] < j)
+              mult[n] = mult[n] + listOfPrimes[n] + listOfPrimes[n];
+            if (mult[n] == j)
               isJPrime = false;
             n = n + 1;
           }
