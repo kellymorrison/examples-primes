@@ -2,15 +2,18 @@ public class PrintPrimes {
   int numberOfPrimes;
   int rowsPerPage; 
   int columnsPerPage;
-  int WW;
   int ordMax;
   int listOfPrimes[];
+  
+  /* this variable is only called in constructor and no where after
+  didn't delete in case another class calls this constructor */
+  int variable; 
 
-  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columnsPerPage, int WW, int ordMax) {
+  public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columnsPerPage, int variable, int ordMax) {
     this.numberOfPrimes   = numberOfPrimes;
     this.rowsPerPage  = rowsPerPage;
     this.columnsPerPage  = columnsPerPage;
-    this.WW  = WW;
+    this.variable  = variable;
     this.ordMax = ordMax;
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
