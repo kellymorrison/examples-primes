@@ -15,7 +15,6 @@ public class PrintPrimes {
     this.listOfPrimes = new int[numberOfPrimes + 1];
   }
 
-
   public static void main(String[] args) {
       PrintPrimes printPrimes = new PrintPrimes(300, 50, 4, 10, 30);
       printPrimes.calculatePrimes();
@@ -36,7 +35,6 @@ public class PrintPrimes {
       boolean isJPrime;
       int tempIndex;
       int oddNonPrimes[] = new int[ordMax + 1];
-
       int j = 1;
       int ord = 2;
       int primeSquared = 9;
@@ -85,5 +83,4 @@ public class PrintPrimes {
         }
     }
 }
-
 					 
