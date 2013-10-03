@@ -1,13 +1,10 @@
 public class PrintPrimes {
   int numberOfPrimes;
-  int rowsPerPage; 
+  int rowsPerPage;
   int columnsPerPage;
+  int variable; 
   int ordMax;
   int listOfPrimes[];
-  
-  /* this variable is only called in constructor and no where after
-  didn't delete in case another class calls this constructor */
-  int variable; 
 
   public PrintPrimes(int numberOfPrimes, int rowsPerPage, int columnsPerPage, int variable, int ordMax) {
     this.numberOfPrimes   = numberOfPrimes;
@@ -37,7 +34,7 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean isJPrime;
       int tempIndex;
-      int oddNonPrimes[] = new int[ordMax + 1];
+      int multOfPrimes[] = new int[ordMax + 1]; //array stores odd multiples of primes found so far
       int j = 1;
       int ord = 2;
       int primeSquared = 9;
@@ -48,15 +45,15 @@ public class PrintPrimes {
           if (j == primeSquared) {
             ord++;
             primeSquared = listOfPrimes[ord] * listOfPrimes[ord];
-            oddNonPrimes[ord - 1] = j;
+            multOfPrimes[ord - 1] = j;
           }
           tempIndex = 2;
           isJPrime = true;
           while (tempIndex < ord && isJPrime) {
-            while (oddNonPrimes[tempIndex] < j) {
-              oddNonPrimes[tempIndex] = oddNonPrimes[tempIndex] + listOfPrimes[tempIndex] + listOfPrimes[tempIndex];
+            while (multOfPrimes[tempIndex] < j) {
+              multOfPrimes[tempIndex] = multOfPrimes[tempIndex] + listOfPrimes[tempIndex] + listOfPrimes[tempIndex];
             }
-            if (oddNonPrimes[tempIndex] == j) {
+            if (multOfPrimes[tempIndex] == j) {
               isJPrime = false;
             }
             tempIndex = tempIndex + 1;
