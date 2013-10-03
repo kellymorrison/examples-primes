@@ -54,9 +54,7 @@ public class PrintPrimes {
           }
           tempIndex = 2;
           isJPrime = true;
-
           findComposites(tempIndex, ord, isJPrime, multOfPrimes, j);
-          
         } while (!isJPrime);
         //j is prime at this point
         listOfPrimes[primesFoundSoFar] = j;
@@ -81,6 +79,7 @@ public class PrintPrimes {
         tempIndex++;
       }
   }
+  
     public void printPrimes() {
         int pageNumber = 1;
         int pageOffset = 1;
