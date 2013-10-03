@@ -40,40 +40,40 @@ public class PrintPrimes {
       boolean isJPrime;
       int tempIndex;
       int multOfPrimes[] = new int[ordMax + 1]; //array stores odd multiples of primes found so far
-      int j = 1;
-      int ord = 2;
+      int cur = 1;
+      int indexOfPrime = 2;
       int primeSquared = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          j = j + 2; //incrementing through odd numbers 
-          if (j == primeSquared) {
-            ord++;
-            primeSquared = listOfPrimes[ord] * listOfPrimes[ord];
-            multOfPrimes[ord - 1] = j;
+          cur = cur + 2; //incrementing through odd numbers 
+          if (cur == primeSquared) {
+            indexOfPrime++;
+            primeSquared = listOfPrimes[indexOfPrime] * listOfPrimes[indexOfPrime];
+            multOfPrimes[indexOfPrime - 1] = cur;
           }
           tempIndex = 2;
           isJPrime = true;
-          findComposites(tempIndex, ord, isJPrime, multOfPrimes, j);
+          findComposites(tempIndex, indexOfPrime, isJPrime, multOfPrimes, cur);
         } while (!isJPrime);
         //j is prime at this point
-        listOfPrimes[primesFoundSoFar] = j;
+        listOfPrimes[primesFoundSoFar] = cur;
       }
     }
   
   /*Finds composite numbers that are multiples of the current prime. These numbers are placed into 
    * the multOfPrimes array. This way, they are marked as not prime. 
    */
-  public void findComposites(int tempIndex, int ord, boolean isJPrime, int[] multOfPrimes, int j) {
-      while (tempIndex < ord && isJPrime) {
+  public void findComposites(int tempIndex, int indexOfPrime, boolean isJPrime, int[] multOfPrimes, int cur) {
+      while (tempIndex < indexOfPrime && isJPrime) {
     	/*when j is greater than the current composite number, the composite number that corresponds 
     	 * to the most recently found number is incremented by 2*that current prime
     	 */
-        while (multOfPrimes[tempIndex] < j) {
+        while (multOfPrimes[tempIndex] < cur) {
           multOfPrimes[tempIndex] = multOfPrimes[tempIndex] + 2*listOfPrimes[tempIndex];
         }
         //compares j with composite numbers and if equal, j is not prime and the loop is exited 
-        if (multOfPrimes[tempIndex] == j) {
+        if (multOfPrimes[tempIndex] == cur) {
           isJPrime = false;
         }
         tempIndex++;
