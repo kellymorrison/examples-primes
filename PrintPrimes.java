@@ -1,3 +1,11 @@
+/*
+ * Kelly Morrison
+ * 260459446
+ * ECSE 321 Assignment 2
+ * 3/10/2013
+ * Prime Calculator
+ */
+
 public class PrintPrimes {
   int numberOfPrimes;
   int rowsPerPage;
