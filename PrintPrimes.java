@@ -47,14 +47,14 @@ public class PrintPrimes {
   private void calculateOddPrimes() {
       boolean isJPrime;
       int tempIndex;
-      int multOfPrimes[] = new int[ordMax + 1]; //array stores odd multiples of primes found so far
+      int multOfPrimes[] = new int[ordMax + 1]; 		//array stores odd multiples of primes found so far
       int cur = 1;
       int indexOfPrime = 2;
       int primeSquared = 9;
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          cur = cur + 2; //incrementing through odd numbers 
+          cur = cur + 2; 								//incrementing through odd numbers 
           if (cur == primeSquared) {
             indexOfPrime++;
             primeSquared = listOfPrimes[indexOfPrime] * listOfPrimes[indexOfPrime];
