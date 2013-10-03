@@ -56,7 +56,7 @@ public class PrintPrimes {
             if (multOfPrimes[tempIndex] == j) {
               isJPrime = false;
             }
-            tempIndex = tempIndex + 1;
+            tempIndex++;
           }
         } while (!isJPrime);
         listOfPrimes[primesFoundSoFar] = j;
