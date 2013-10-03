@@ -54,25 +54,33 @@ public class PrintPrimes {
           }
           tempIndex = 2;
           isJPrime = true;
-          while (tempIndex < ord && isJPrime) {
-        	/*when j is greater than the current composite number, the composite number that corresponds 
-        	 * to the most recently found number is incremented by 2*that current prime
-        	 */
-            while (multOfPrimes[tempIndex] < j) {
-              multOfPrimes[tempIndex] = multOfPrimes[tempIndex] + 2*listOfPrimes[tempIndex];
-            }
-            //compares j with composite numbers and if equal, j is not prime and the loop is exited 
-            if (multOfPrimes[tempIndex] == j) {
-              isJPrime = false;
-            }
-            tempIndex++;
-          }
+
+          findComposites(tempIndex, ord, isJPrime, multOfPrimes, j);
+          
         } while (!isJPrime);
         //j is prime at this point
         listOfPrimes[primesFoundSoFar] = j;
       }
     }
-
+  
+  /*Finds composite numbers that are multiples of the current prime. These numbers are placed into 
+   * the multOfPrimes array. This way, they are marked as not prime. 
+   */
+  public void findComposites(int tempIndex, int ord, boolean isJPrime, int[] multOfPrimes, int j) {
+      while (tempIndex < ord && isJPrime) {
+    	/*when j is greater than the current composite number, the composite number that corresponds 
+    	 * to the most recently found number is incremented by 2*that current prime
+    	 */
+        while (multOfPrimes[tempIndex] < j) {
+          multOfPrimes[tempIndex] = multOfPrimes[tempIndex] + 2*listOfPrimes[tempIndex];
+        }
+        //compares j with composite numbers and if equal, j is not prime and the loop is exited 
+        if (multOfPrimes[tempIndex] == j) {
+          isJPrime = false;
+        }
+        tempIndex++;
+      }
+  }
     public void printPrimes() {
         int pageNumber = 1;
         int pageOffset = 1;
