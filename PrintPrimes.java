@@ -30,7 +30,12 @@ public class PrintPrimes {
       listOfPrimes[1] = 2;
       calculateOddPrimes();
   }
-
+  
+/* Calculates all the odd prime numbers by incrementing through odd numbers (beginning at 3) 
+ * and proceeds to store the multiples of the current odd number into the array multOfPrimes. 
+ * Future odd numbers are compared with the composite numbers of multOfPrimes and if they are
+ *  equal, the current odd number is not prime and is incremented and the comparison restarts. 
+ */
   private void calculateOddPrimes() {
       boolean isJPrime;
       int tempIndex;
