@@ -74,7 +74,7 @@ public class PrintPrimes {
                 isJPrime = false;
               }
               tempIndex++;
-            }
+            } 
         } while (!isJPrime);
         //j is prime at this point
         listOfPrimes[primesFoundSoFar] = cur;
