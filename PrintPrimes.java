@@ -46,7 +46,7 @@ public class PrintPrimes {
 
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
-          j = j + 2;
+          j = j + 2; //incrementing through odd numbers 
           if (j == primeSquared) {
             ord++;
             primeSquared = listOfPrimes[ord] * listOfPrimes[ord];
@@ -55,15 +55,20 @@ public class PrintPrimes {
           tempIndex = 2;
           isJPrime = true;
           while (tempIndex < ord && isJPrime) {
+        	/*when j is greater than the current composite number, the composite number that corresponds 
+        	 * to the most recently found number is incremented by 2*that current prime
+        	 */
             while (multOfPrimes[tempIndex] < j) {
-              multOfPrimes[tempIndex] = multOfPrimes[tempIndex] + listOfPrimes[tempIndex] + listOfPrimes[tempIndex];
+              multOfPrimes[tempIndex] = multOfPrimes[tempIndex] + 2*listOfPrimes[tempIndex];
             }
+            //compares j with composite numbers and if equal, j is not prime and the loop is exited 
             if (multOfPrimes[tempIndex] == j) {
               isJPrime = false;
             }
             tempIndex++;
           }
         } while (!isJPrime);
+        //j is prime at this point
         listOfPrimes[primesFoundSoFar] = j;
       }
     }
