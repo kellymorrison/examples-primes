@@ -51,11 +51,11 @@ public class PrintPrimes {
       int cur = 1;
       int indexOfPrime = 2;
       int primeSquared = 9;
-
+      
       for(int primesFoundSoFar = 2; primesFoundSoFar <= numberOfPrimes; primesFoundSoFar++) {
         do {
           cur = cur + 2; 								//incrementing through odd numbers 
-          if (cur == primeSquared) {
+          if (cur == primeSquared) {					//if true, primeSquared is updated
             indexOfPrime++;
             primeSquared = listOfPrimes[indexOfPrime] * listOfPrimes[indexOfPrime];
             multOfPrimes[indexOfPrime - 1] = cur;
