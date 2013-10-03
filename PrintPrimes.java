@@ -61,7 +61,7 @@ public class PrintPrimes {
             multOfPrimes[indexOfPrime - 1] = cur;
           }
           tempIndex = 2;
-          isJPrime = true;
+          isJPrime = true; 
           while (tempIndex < indexOfPrime && isJPrime) {
           	/*when j is greater than the current composite number, the composite number that corresponds 
           	 * to the most recently found number is incremented by 2*that current prime
